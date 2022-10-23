@@ -8,13 +8,14 @@
 
 テキストへのリンクはこちらをご利用ください。
 
-[Electone_and_MIDI_document.pdf](https://github.com/wakmin-oxo/Electone_and_MIDI_document/raw/main/pdf/Electone_and_MIDI_document.pdf)
+[**Electone_and_MIDI_document.pdf**](https://github.com/wakmin-oxo/Electone_and_MIDI_document/raw/main/pdf/Electone_and_MIDI_document.pdf)
 
 
 # Domino用音源定義ファイル
 
-本テキストではWindows用MIDIシーケンサ「Domino」を用いてMIDI編集を効率的に行うモジュールを導入することを勧めています。本文中にもありますが、こちらにダウンロードリンクを置いておきます。
-[Domino用 Electone音源定義ファイル](https://www.kamekyame.com/el/domino-define) 
+本テキストではWindows用MIDIシーケンサ「Domino」を用いてMIDI編集を効率的に行うモジュールを導入することを勧めています。本テキスト中にもありますが、こちらに公式サイトへのリンクを置いておきます。
+
+[**Domino用 Electone音源定義ファイル**](https://www.kamekyame.com/el/domino-define) 
 
 # 変更履歴
 
