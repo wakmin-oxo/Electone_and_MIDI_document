@@ -1,7 +1,22 @@
-# [Electone_and_MIDI_document.pdf](https://github.com/wakmin-oxo/Electone_and_MIDI_document/raw/main/pdf/Electone_and_MIDI_document.pdf)
-Japanese Document for Electone players interested in XG-Support or Style File Format
+# はじめに
 
-**再配布は禁止します。人に紹介するときはここのサイトを紹介してください。なぜなら常に新しい版を配布したいからです。**
+エレクトーンユーザー向けに、XGサポートとスタイルの解説をしています。このテキストだけで説明が完結することを目指しており、MIDIの基礎についても軽く触れています。
+
+ただし、独自研究が多く含まれておりますので、そのような内容の正確性は保証できません。読者は**自己責任**で実行してください。
+
+また、常に最新版を配布したいので、テキストのpdfの再配布はせずに、こちらのページを紹介していただくようお願いします。
+
+テキストへのリンクはこちらをご利用ください。
+
+[Electone_and_MIDI_document.pdf](https://github.com/wakmin-oxo/Electone_and_MIDI_document/raw/main/pdf/Electone_and_MIDI_document.pdf)
+
+
+# Domino用音源定義ファイル
+
+本テキストではWindows用MIDIシーケンサ「Domino」を用いてMIDI編集を効率的に行うモジュールを導入することを勧めています。本文中にもありますが、こちらにダウンロードリンクを置いておきます。
+[Domino用 Electone音源定義ファイル](https://www.kamekyame.com/el/domino-define) 
+
+# 変更履歴
 
 2022/10/23 [change log](https://github.com/wakmin-oxo/Electone_and_MIDI_document/commit/c67494643caa32e6192dae591cae2fdddc0d2bb5)
 第3章の説明を追加。
