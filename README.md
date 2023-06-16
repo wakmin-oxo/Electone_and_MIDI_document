@@ -8,7 +8,7 @@
 
 テキストへのリンクはこちらをご利用ください。
 
-[**Electone_and_MIDI_document.pdf**](https://github.com/wakmin-oxo/Electone_and_MIDI_document/raw/main/pdf/Electone_and_MIDI_document.pdf)
+[**Electone_and_MIDI_document.pdf**](https://github.com/wakmin-oxo/Electone_and_MIDI_document/raw/main/pdf/Electone_and_MIDI_document.pdf){:target="_blank"}
 
 
 # Domino用音源定義ファイル
