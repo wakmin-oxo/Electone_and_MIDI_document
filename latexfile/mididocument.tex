@@ -76,7 +76,7 @@
 \columnseprule=0.2mm
 \title{エレクトーン演奏演技におけるMIDIの活用 \\ \small\url{https://github.com/wakmin-oxo/Electone_and_MIDI_document}}
 \author{wakmin (\href{https://twitter.com/wakmin_}{@wakmin\_})}
-\date{2023年6月}
+\date{2023年12月}
 \maketitle
 
 %\jot=6pt
@@ -162,7 +162,7 @@ MIDIチャンネルメッセージは16の独立した\emphj{チャンネル}を
 ノートオンからノートオフまでの時間のことを、\emphj{ゲートタイム}（またはデュレーション）と呼ぶ。
 
 \subsubsection{チャンネルプレッシャー}
-チャンネルプレッシャーは、そのチャンネルのアフタータッチの強さを指定する命令である\footnote{ELS-02Cにおいて、アフタータッチは各鍵盤に1つずつ、計3つの感圧センサーで鍵盤への力を測定して処理している。このような、チャンネルごとのアフタータッチをチャンネルプレッシャーと呼ぶ。なお、キーごとにアフタータッチを認識する場合、ポリフォニックキープレッシャーという別の命令で処理されるが、ELS02シリーズには未搭載である。}。0から127の値をとる。ELボイスのみ音色変化が起こり、XGボイスでは無視される。
+チャンネルプレッシャーは、そのチャンネルのアフタータッチの強さを指定する命令である\footnote{ELS-02Cにおいて、アフタータッチは各鍵盤に1つずつ、計3つの感圧センサーで鍵盤への力を測定して処理している。このような、チャンネルごとのアフタータッチをチャンネルプレッシャーと呼ぶ。なお、キーごとにアフタータッチを認識する場合、ポリフォニックキープレッシャーという別の命令で処理されるが、ELS-02シリーズには未搭載である。シンセサイザーMONTAGE M8x(2023)などにはポリフォニックアフタータッチという名前で搭載されている。}。0から127の値をとる。ELボイスのみ音色変化が起こり、XGボイスでは無視される。
 
 \subsubsection{ピッチベンドチェンジ}
 ピッチベンドチェンジは、そのチャンネルのサウンドのピッチを変化させる命令である。エレクトーンの場合、\emphj{ホリゾンタルタッチ}の強さが送信される。16384段階に量子化されており\footnote{128通りを表現できるデータバイトを2個組み合わせて使っているため、$128\times128=16384$通りを表現できる。}、デフォルトで0で、-8192から8191の値をとると表されることが多い。
@@ -657,7 +657,7 @@ XGボイスにかけることができるエフェクトは、\emphj{リバー�
 
 バリエーションブロックは\emphj{システムエフェクトとインサーションエフェクトのどちらでも使用できる}。図\ref{figvariation}にそれぞれの場合におけるエフェクトブロックの連結の概念図を示す。バリエーションブロックはエレクトーン全体で1基のみ存在し、これをシステムとして使うのか、インサーションとして使うのかを選ぶことができる。
 
-システムエフェクトとして使う場合、エフェクトタイプの指定(CCM\texttt{\#}450)、システムエフェクトの設定(CCM\texttt{\#}465)をこの順番で行い、続いてバリエーションリターンレベルの設定(CCM\texttt{\#}461)、バリエーションパンの設定(CCM\texttt{\#}462)、バリエーションから他のシステムエフェクトへのセンド量の設定(CCM\texttt{\#}463, 464)をする\footnote{なお、エフェクトタイプの指定を行うと、そのエフェクトのデフォルトのパラメータ設定が読み込まれ、前のエフェクト設定は捨てられるという点に注意する。エフェクトのパラメータを設定する場合はCCM\texttt{\#}451からCCM\texttt{\#}460、およびCCM\texttt{\#}474からCCM\texttt{\#}479を用いる。各パラメータが何に対応する操作なのかは、まだ解析が終わっていない。この対応を明らかにするには、例えばパソコンでsysEXをリアルタイムで表示できるようにしておいて、エレクトーンでELボイスのエフェクトパラメータを弄ったときに送信されるメッセージを解析すれば良い。}。この後、エフェクトをかけたいチャンネルのCC\texttt{\#}94 Variation Send Levelを0でない値に設定し、かけたくないチャンネルのCC\texttt{\#}94を0にする。\emphj{システムエフェクトの場合は複数のチャンネルに渡って1種類のバリエーションエフェクトをかけることができる}。
+システムエフェクトとして使う場合、エフェクトタイプの指定(CCM\texttt{\#}450)、システムエフェクトの設定(CCM\texttt{\#}465)をこの順番で行い、続いてバリエーションリターンレベルの設定(CCM\texttt{\#}461)、バリエーションパンの設定(CCM\texttt{\#}462)、バリエーションから他のシステムエフェクトへのセンド量の設定(CCM\texttt{\#}463, 464)をする\footnote{なお、エフェクトタイプの指定を行うと、そのエフェクトのデフォルトのパラメータ設定が読み込まれ、前のエフェクト設定は捨てられるという点に注意する。エフェクトのパラメータを設定する場合はCCM\texttt{\#}451からCCM\texttt{\#}460、およびCCM\texttt{\#}474からCCM\texttt{\#}479を用いる。各パラメータが何に対応する操作なのかは、まだ解析が終わっていない。この対応を明らかにするには、例えばパソコンでsysEXをリアルタイムで表示できるようにしておいて、エレクトーンでELボイスのエフェクトパラメータを弄ったときに送信されるメッセージを解析すれば良い。なお、一部のエフェクトに関しては海外向けエレクトーンELA-1やポータブルキーボードPSR-SX900などのデータリストにパラメータの番地が書いてある\cite{ELA1}\cite{PSR}。}。この後、エフェクトをかけたいチャンネルのCC\texttt{\#}94 Variation Send Levelを0でない値に設定し、かけたくないチャンネルのCC\texttt{\#}94を0にする。\emphj{システムエフェクトの場合は複数のチャンネルに渡って1種類のバリエーションエフェクトをかけることができる}。
 
 インサーションエフェクトとして使う場合、エフェクトタイプの指定(CCM\texttt{\#}450)、インサーションエフェクトの設定(CCM\texttt{\#}465)、インサートするチャンネルの指定(CCM\texttt{\#}466)を、この順番で行う必要がある。システムとして使う場合に比べて記述する命令がシンプルで簡単である。ただし、\emphj{どれか1つのチャンネルにしかインサーションエフェクトを用いることができない}点に注意する。
 
@@ -854,7 +854,7 @@ Main A以降も作る場合は、次に作りたいセクションパターン�
 \end{tabular}
 \end{table}
 
-なお、エレクトーン上で編集する時と同じように、\texttt{Fill In}は1小節しか扱うことができない\footnote{\texttt{Fill In}に2小節以上書いても、最初の1小節だけ読み込まれて以降の小節は無視される。}。他のセクションパターンについては小節数の制限は無いが、エレクトーンのメモリが一杯になったら読み込めなくなるため\href{http://els01stylefile.music.coocan.jp/Stagea_Style/Stagea_Style_P1003.htm}{【10-3】}、極端に大きなサイズのセクションパターンは作るべきではない。大きくとも64小節程度に収まるように分割しよう。
+なお、エレクトーン上で編集する時と同じように、\texttt{Fill In}は1小節しか扱うことができない\footnote{\texttt{Fill In}に2小節以上書いても、最初の1小節だけ読み込まれて以降の小節は無視される。}。他のセクションパターンについては小節数の制限は無いが、エレクトーンのメモリが一杯になったら読み込めなくなるため\href{http://els01stylefile.music.coocan.jp/Stagea_Style/Stagea_Style_P1003.htm}{【10-3】}、極端に大きなサイズのセクションパターンは作るべきではない。大きくとも64小節程度に収まるように分割しよう\footnote{90小節程度の大きなサイズのセクションパターンで作ったスタイルでシーケンスを組んで再生したところ、再生中にリズムの再生が異常停止した。}。
 
 最後のセクションパターンまで打ち込みが終わったら、最後のノートの次の小節の頭に、End of Trackを忘れずに配置する。これで、メインドラムとアドドラムのみのスタイル（のMIDIセクション）を打ち込むことができた。
 
@@ -914,7 +914,7 @@ CC\texttt{\#}100/101(RPN) & OK & - \\ \hline
 エレクトーンでリズムパターンプログラムを使用してスタイルを製作する場合のキーの割り当てと、対応するノートナンバーを図\ref{fignotenumber}に示す。例えば、多くのキットでC1はキックドラムに割り当てられており、これを指定するにはノートナンバーを36とすれば良い。
 \begin{figure}[h]
   \centering
-  \includegraphics[keepaspectratio,width=150mm]{notenumber.pdf}
+  \includegraphics[keepaspectratio,width=150mm]{notenumber2.pdf}
   \caption{リズムパターンプログラムでの操作で使用するエレクトーンのキーの音名と、実際にスタイルに打ち込まれるノートのノートナンバー。}
   \label{fignotenumber}
 \end{figure}
@@ -980,7 +980,7 @@ CC\texttt{\#}95 バリエーションを最大値として、そこにどの程�
 \begin{description}
 
 \item[\emphj{CCM\texttt{\#}903 ALTERNATE GROUP}]\,\\
-ALTERNATE GROUPが同じであるような複数のノートは同時に発音できないようになる。ハイハットのオープンとクローズのように、片方が鳴ったときにもう片方をミュートしたいときなどに使う。デフォルトのALTERNATE GROUPを知りたい場合はXG仕様書\cite{XG仕様}を参考にするしかないが、後発のエレクトーンのドラムキットが載っていないので、もしALTERNATE GROUPを操作するのならば自分で調査するしかない。通常のノートはALTERNATE GROUPはオフになっている。
+ALTERNATE GROUPが同じであるような複数のノートは同時に発音できないようになる。ハイハットのオープンとクローズのように、片方が鳴ったときにもう片方をミュートしたいときなどに使う。デフォルトのALTERNATE GROUPを知りたい場合はXG仕様書\cite{XG仕様}を参考にするしかないが、後発のエレクトーンのドラムキットが載っていないので、もしALTERNATE GROUPを操作するのならば自分で調査するしかない\footnote{海外向けエレクトーンELA-1やポータブルキーボードPSR-SX900などのデータリストに、一部のELS-02シリーズのキットのALTERNATE GROUPが掲載されている。完全に互換するかは不明だが、参考になるかもしれない\cite{ELA1}\cite{PSR}。}。通常のノートはALTERNATE GROUPはオフになっている。
 
 \item[\emphj{CCM\texttt{\#}908 KEY ASSIGN}]\,\\
 \emphj{この命令は、筆者の実験においては、エレクトーンで使うことができなかった}\footnote{XG仕様書\cite{XG仕様}によると、KEY ASSIGNはオプショナルではないはずなので、エレクトーンでも設定変更ができると考えられる。成功した方は連絡をください。}。以下の説明はKEY ASSIGNの一般的な説明である。もしKEY ASSIGNを使いたいのであれば、代わりにRcv NOTE OFFをONにして、打ち込みの段階でゲートタイムを調節して打ち込めば良い。
@@ -1033,7 +1033,8 @@ CASMセクションを編集するソフトウェアも複数存在するよう�
 Ctabの音高変換の仕組みを理解せずに、正しく再生できるアカンパニメントを作るのは難しい。そのため、アカンパニメントのMIDIセクションを打ち込む前に、まずはCtabの命令を説明する。この節の解説を終えた後、具体的なスタイルファイルの作成方法の解説を行う。\emphj{初めてアカンパニメントの自作に挑戦する人には難しいかもしれないので、その場合はこの節を一旦飛ばして、次の「作り方」から読むと良い。必要になったら適宜、この節に戻ってくれば良い}。なお、スタイルクリエーター搭載楽器の取扱説明書には、公式のCtabの解説が存在するため、そちらも合わせて参照すると良い\cite{PSR}。Ctabの各パラメータには様々な呼び方があるが、基本的に本稿では見出し語としてCasmEditの呼称を採用する。
 
 \subsubsection{入力チャンネル・出力チャンネル}
-\begin{wraptable}[14]{r}[5mm]{50mm}
+
+\begin{wraptable}[12]{r}[5mm]{50mm}
 \caption{出力チャンネル一覧。}
 \label{styleoutch}
 \centering
@@ -1051,6 +1052,7 @@ Ch.16 & フレーズ2 \\
 \hline
 \end{tabular}
 \end{wraptable}
+%
 エレクトーンのスタイルで使用できるセクションパートは、メインドラム、アドドラム、ベース、コード1/2、パッド、フレーズ1/2の8つである。しかし、MIDIセクションで取り扱えるチャンネルは8つではなく、最大16まで使用できる\href{http://els01stylefile.music.coocan.jp/Stagea_Style/P1706a.htm}{【17-6】}。スタイルは、\emphj{最大16チャンネル分のMIDIデータを8パートに合流させて再生している}。MIDIセクションで記述する最大16のチャンネルを\emphj{入力チャンネル}と呼び、スタイルとして最終的に再生するのに使用する8つのチャンネルを\emphj{出力チャンネル}と呼ぶ。出力チャンネルとして使用される8つのチャンネルと、それらを使用した際に再生されるセクションパートを表\ref{styleoutch}に示す。
 
 この仕様により、特定のコードの時に違うパターン（違う楽器にもできる\footnote{1つのパートで同時に鳴らすことができる楽器（プログラムチェンジコマンド）は、当然1種類だけであるため、例えばコード1でピアノとストリングスとブラスを同時に鳴らす、ということはできない\href{http://els01stylefile.music.coocan.jp/Stagea_Style/P1709a.htm}{【17-9】}。１つの出力チャンネルで同時に2以上の楽器を鳴らすことはできないが、同時でなければ複数の楽器を1つの出力チャンネルに通すことができる。}）を再生したり、ピアノの左手相当のノートと右手相当のノートを別々のチャンネルで編集し、再生を1パートでするといったことが可能になる。入力チャンネルが複雑な具体例として、エレクトーンの内蔵スタイルである「アンプラグド1」などがある。コード1の1出力に13チャンネル分のデータが入力されている\href{http://els01stylefile.music.coocan.jp/Stagea_Style/P1708a.htm}{【17-8】}。
@@ -1094,7 +1096,7 @@ MIDIセクションで記述したパターンの基準となるコードを指�
 
 \subsubsection{NTT}
 \emphj{NTT}とは\underline{N}ote \underline{T}ransposition \underline{T}ableのことで、演奏を検出したコードタイプに応じて
-、どのようにMIDIセクションのデータを音高変換するかを指定する\href{http://els01stylefile.music.coocan.jp/Stagea_Style/P1626.htm}{【16-26】}。\emphj{CasmEditの「NTT」または「Cntt」という欄で指定する}\footnote{エレクトーンを含む新しい電子楽器ではCASMセクション内のCtab以外にCnttというセクションが追加され、Ctab内のNTTよりも多彩なオプションを選ぶことができるように拡張された。なお、Cnttに対応している楽器ではNTTの命令をCnttで上書きする\cite{style}。}\footnote{なお、エレクトーン内蔵のスタイルでは「NTT$=$未指定」かつ「Cntt$=$指定」または「NTT$=$指定」かつ「Cntt$=$未指定」のいずれかであった。}。通常のパートであれば「NTT」欄で指定できるが、特殊なスケールに沿って音高変換を行いたい場合と、ベースオンコード的な音高変換を行いたい場合は「Cntt」欄で指定する\footnote{ベースパートには、Bass On付きのものを選ぶ。Bass On付きの物を選ぶと、オンコード（ベースが和音のルートを演奏しないようなコード）で演奏した場合にも、意図したベースを演奏するようになっている。例えば判定コードが$\textrm{C}^{\textrm{on E}}$のとき、On Bassが有効になっているパートではEに集中して音高変換をする。}\href{http://els01stylefile.music.coocan.jp/Stagea_Style/P1531.htm}{【15-31】}。以下にNTTとCnttのオプションを解説する。
+、どのようにMIDIセクションのデータを音高変換するかを指定する\href{http://els01stylefile.music.coocan.jp/Stagea_Style/P1626.htm}{【16-26】}。\emphj{CasmEditの「NTT」または「Cntt」という欄で指定する}\footnote{エレクトーンを含む新しい電子楽器ではCASMセクション内のCtab以外にCnttというセクションが追加され、Ctab内のNTTよりも多彩なオプションを選ぶことができるように拡張された。なお、Cnttに対応している楽器ではNTTの命令をCnttで上書きする\cite{style}。}\footnote{なお、エレクトーン内蔵のスタイルでは「NTT$=$未指定」かつ「Cntt$=$指定」または「NTT$=$指定」かつ「Cntt$=$未指定」のいずれかであるらしい。}。通常のパートであれば「NTT」欄で指定できるが、特殊なスケールに沿って音高変換を行いたい場合と、ベースオンコード的な音高変換を行いたい場合は「Cntt」欄で指定する\footnote{ベースパートには、Bass On付きのものを選ぶ。Bass On付きの物を選ぶと、オンコード（ベースが和音のルートを演奏しないようなコード）で演奏した場合にも、意図したベースを演奏するようになっている。例えば判定コードが$\textrm{C}^{\textrm{on E}}$のとき、On Bassが有効になっているパートではEに集中して音高変換をする。}\href{http://els01stylefile.music.coocan.jp/Stagea_Style/P1531.htm}{【15-31】}。以下にNTTとCnttのオプションを解説する。
 
 \begin{description}
 \item[\emphj{BYPASS}]\
@@ -1495,12 +1497,13 @@ MIDIデバイスのインターフェースとして電子楽器用のコント�
 \bibitem{スタイル} スタイル入門講座 \url{http://els01stylefile.music.coocan.jp/}
 \bibitem{style} Peter Wierzba Style Files -- Description \url{http://www.wierzba.homepage.t-online.de/stylefiles.htm}
 \bibitem{CASMeditor} YAMAHA Keyboard -- style CASM Format \url{http://www.jososoft.dk/yamaha/articles/style2_2.htm}
+\bibitem{ELA1} ELA-1 Data List \url{https://my.yamaha.com/files/download/other_assets/8/1590748/ela1_en_zh_dl_a0.pdf}
 \bibitem{PSR} ヤマハ PSR-SX600 Refernce Manual \url{https://jp.yamaha.com/files/download/other_assets/0/1346910/psrsx600_ja_rm_b0.pdf}
 \bibitem{B00} All that I know about Electone files \url{http://serge45.free.fr/electone/texte.htm#b00evt}
 \bibitem{cvp} ヤマハ クラビノーバ CVP-109/107/105 取扱説明書 \url{https://jp.yamaha.com/files/download/other_assets/4/314934/CVP109J1.PDF}
 \bibitem{取説} ELECTONE STAGEA ELS-02 ELS-02C ELS-02X 取扱説明書 \url{https://jp.yamaha.com/files/download/other_assets/0/803680/els02_ja_om_g0.pdf}
 \bibitem{初心者になるための} 初心者になるための耳コピMIDI講座 \url{http://mimikopi.nomaki.jp/}
-\bibitem{elspc} STAGEAとPC編曲の連携 （東大エレクラ資料、まさにこの名前でググれば運が良ければ見つかるかも。一時期、一瞬だけ、東大エレクラのページが公開されていたことがあった。筆者と思われるkodack64氏のgithubから東大エレクラのサーバーへリンクが貼られている。）
+\bibitem{elspc} STAGEAとPC編曲の連携 \url{https://kodack64.github.io/sound/manual/index.html}
 \bibitem{Arduinoのすすめ} Arduinoのすすめ \url{https://n.mtng.org/ele/arduino/}
 \bibitem{Arduinoリファレンス} Arduino 日本語リファレンス \url{http://www.musashinodenpa.com/arduino/ref/}
 \bibitem{ArduinoMIDILib} Arduino MIDI Libraryの使い方 \url{https://qiita.com/yudai220/items/3bde9461f282d56d1ac2}
