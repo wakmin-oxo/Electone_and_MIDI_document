@@ -17,6 +17,9 @@
 [**Domino用 Electone音源定義ファイル**](https://www.kamekyame.com/el/domino-define) 
 
 # 変更履歴
+2023/12/18 [change log](https://github.com/wakmin-oxo/Electone_and_MIDI_document/commit/4cabb5d2c7902e1c633377164f25459e8be39b9c)
+ELSとPCの連携のpdfのリンクを回復。ほか軽微な修正。
+
 2023/06/08 [change log](https://github.com/wakmin-oxo/Electone_and_MIDI_document/commit/65527023a5dd0a1ee73723bef6e668b3d5d73edb)
 4章、5章を真面目に書いた。6章の情報を追加。各章の頭にその章の目的を明らかにした。冗長な表現を修正など、全体的に改訂。
 
